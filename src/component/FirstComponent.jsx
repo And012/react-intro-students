@@ -1,5 +1,7 @@
 import {useEffect, useState} from "react";
 import {useNavigate} from 'react-router-dom'
+import {selectGlobalDataName} from "../store/globalState/globalDataSelectors";
+import {useSelector} from "react-redux";
 
 const onChangeGenerator = (setValue) => (event) => {
     if (+event.target.value === +event.target.value) {
@@ -12,6 +14,7 @@ export default function FirstComponent({count, setCount}) {
     const [sqrtValue, setSqrtValue] = useState('')
     const [powValue, setPowValue] = useState('')
     const [isPow, setIsPow] = useState(false)
+    const name = useSelector(selectGlobalDataName)
     const navigate = useNavigate()
 
     useEffect(() => {

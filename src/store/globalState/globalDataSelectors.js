@@ -1,0 +1,1 @@
+export const selectGlobalDataName = (state) => state.globalState.name
