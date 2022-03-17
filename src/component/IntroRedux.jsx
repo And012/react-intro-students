@@ -1,12 +1,26 @@
-import {useDispatch, useSelector} from 'react-redux'
+import {connect, useDispatch, useSelector} from 'react-redux'
 import {selectGlobalDataName} from "../store/globalState/globalDataSelectors";
 import {useState} from "react";
 import {changeName, setInitialName} from "../store/globalState/globalStateReducer";
 
+function UsingConnect({value, id}) {
+    console.log(value)
+    return (
+        <h1 style={{background: 'red'}}>salkdfjlsakjfdlkajs</h1>
+    )
+}
+
+const Wrapper = connect((state, ownProps) => {
+    console.log(state)
+    return {
+        value: state.globalState.name
+    }
+})(UsingConnect)
 export default function IntroRedux() {
     return <div>
         <h1>redux intro</h1>
         <SomeComponent/>
+        <Wrapper value={15}/>
     </div>
 }
 
@@ -40,3 +54,5 @@ function AnotherComponent() {
         >{el}</h2>)}
     </div>
 }
+
+
